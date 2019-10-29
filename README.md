@@ -65,9 +65,10 @@ spring:
           appid:
             clientId: <<clientId>>
             clientSecret: <<clientSecret>>
-            oAuthServerUri: <<oAuthServerUri>> 
+            issuerUri: <<issuerUri>> 
 ```
-* oAuthServerUri - is the oAuthServerUri of the App ID.
+* issuerUri - URI that can either be an OpenID Connect discovery endpoint or an OAuth 2.0 Authorization Server Metadata endpoint defined by RFC 8414.
+
 
 If you are not sure of the region, tenantID and version, use this configuration by just providing oAuthServerUri.
 

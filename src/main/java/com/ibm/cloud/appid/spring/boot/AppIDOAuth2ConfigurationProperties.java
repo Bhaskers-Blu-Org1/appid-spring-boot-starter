@@ -103,9 +103,10 @@ public class AppIDOAuth2ConfigurationProperties {
 		private String version;
 		
 		/**
-		 * OAuthServerUri of AppID
+		 * URI that can either be an OpenID Connect discovery endpoint or an OAuth 2.0
+		 * Authorization Server Metadata endpoint defined by RFC 8414.
 		 */
-		private String oAuthServerUri;
+		private String issuerUri;
 		
 		public String getProvider() {
 			return this.provider;
@@ -194,13 +195,13 @@ public class AppIDOAuth2ConfigurationProperties {
 		public void setVersion(String version) {
 			this.version = version;
 		}
-		
-		public String getOAuthServerUri() {
-			return oAuthServerUri;
+
+		public String getIssuerUri() {
+			return issuerUri;
 		}
 
-		public void setOAuthServerUri(String oAuthServerUri) {
-			this.oAuthServerUri = oAuthServerUri;
+		public void setIssuerUri(String issuerUri) {
+			this.issuerUri = issuerUri;
 		}
 	}
 	

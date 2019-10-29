@@ -55,6 +55,10 @@ public class AppIDOAuth2ClientPropertiesRegistrationAdapter {
 				return getBuilder(builder, provider, properties);
 			}
 		}
+		if (properties.getIssuerUri() != null) {
+			Builder builder = ClientRegistrations.fromOidcIssuerLocation(properties.getIssuerUri()).registrationId(registrationId);
+			return getBuilder(builder, null, properties);
+		}
 		return null;
 	}
 
@@ -84,13 +88,15 @@ public class AppIDOAuth2ClientPropertiesRegistrationAdapter {
 		map.from(properties::getScope).as(StringUtils::toStringArray).to(builder::scope);
 		map.from(properties::getClientName).to(builder::clientName);
 		
-		map.from(provider::getAuthorizationUri).to(builder::authorizationUri);
-		map.from(provider::getTokenUri).to(builder::tokenUri);
-		map.from(provider::getUserInfoUri).to(builder::userInfoUri);
-		map.from(provider::getUserInfoAuthenticationMethod).as(AuthenticationMethod::new)
-				.to(builder::userInfoAuthenticationMethod);
-		map.from(provider::getJwkSetUri).to(builder::jwkSetUri);
-		map.from(provider::getUserNameAttribute).to(builder::userNameAttributeName);
+		if (provider != null) {
+			map.from(provider::getAuthorizationUri).to(builder::authorizationUri);
+			map.from(provider::getTokenUri).to(builder::tokenUri);
+			map.from(provider::getUserInfoUri).to(builder::userInfoUri);
+			map.from(provider::getUserInfoAuthenticationMethod).as(AuthenticationMethod::new)
+					.to(builder::userInfoAuthenticationMethod);
+			map.from(provider::getJwkSetUri).to(builder::jwkSetUri);
+			map.from(provider::getUserNameAttribute).to(builder::userNameAttributeName);
+		}
 		return builder;
 	}
 	

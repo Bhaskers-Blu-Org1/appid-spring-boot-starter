@@ -64,12 +64,11 @@ public enum AppIDOAuth2Provider {
 	private static final String DEFAULT_REDIRECT_URL = "{baseUrl}/{action}/oauth2/code/{registrationId}";
 
 	
-	
 	public Builder getBuilder(String registrationId, String appIDURL, AppIDOAuth2ConfigurationProperties.Registration properties) {
 		Set<String> scope = new HashSet<String>();
 		scope.add("openid");
-		String oAuthServerUri = getOAuthServerUri(appIDURL, properties.getOAuthServerUri(),
-				properties.getVersion(), properties.getTenantID());
+		String oAuthServerUri = getOAuthServerUri(appIDURL, properties.getVersion(),
+				properties.getTenantID());
 		
 		ClientRegistration.Builder builder = ClientRegistration.withRegistrationId(registrationId);
 		builder.clientId(properties.getClientId());
@@ -87,10 +86,7 @@ public enum AppIDOAuth2Provider {
 		return builder;
 	}
 	
-	public String getOAuthServerUri(String appIDURL, String oAuthServerUri, String version, String tenantID) {
-		if(oAuthServerUri != null) {
-			return oAuthServerUri;
-		}
+	public String getOAuthServerUri(String appIDURL, String version, String tenantID) {
 		return new StringBuilder(appIDURL)
 				.append("v" + (version != null ? version : DEFAULT_APPID_VERSION) + "/")
 				.append(tenantID).toString();
