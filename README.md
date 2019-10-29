@@ -52,7 +52,7 @@ spring:
 * clientID - is the client id of the App ID service you created.
 * clientSecret - is the client secret of the App ID service you created.
 * tenantID - is the tenant id of the App ID service you created.
-* version - is the App ID endpoints version, it is defaulted to 4, but if you would like to use a different version then this parameter should be set.
+* version - is the App ID endpoints version, it is defaulted to 4, but if you would like to use a different version of App ID then this parameter should be set. This is optional.
 
 2.
 
