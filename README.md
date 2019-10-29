@@ -112,6 +112,7 @@ spring:
 ## Related Documentation
 * [Spring Boot documentation](https://projects.spring.io/spring-boot/)
 * [App ID blogs](https://cloud.ibm.com/docs/services/appid?topic=appid-rellinks)
+* [Spring Security](https://docs.spring.io/spring-security/site/docs/5.1.6.RELEASE/reference/htmlsingle/)
 
 ## Development
 For information about contributing, building, and running tests see the [CONTRIBUTING.md](CONTRIBUTING.md).
