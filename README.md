@@ -16,7 +16,7 @@ Gradle:
 
 ```groovy
 dependencies {
-    compile group: 'com.appid', name: 'appid-spring-boot-starter', version: '0.0.1'
+    compile group: 'com.ibm.cloud.appid', name: 'appid-spring-boot-starter', version: '0.0.1'
 }
 ```
 
@@ -24,7 +24,7 @@ Maven:
 
 ~~~ xml
 <dependency>
-  <groupId>com.appid</groupId>
+  <groupId>com.ibm.cloud.appid</groupId>
   <artifactId>appid-spring-boot-starter</artifactId>
   <version>0.0.1</version>
 </dependency>
@@ -38,21 +38,19 @@ This section contains examples of how to use App ID starter in your spring boot 
 ```
 spring:
   security:
-    oauth2:
-      client:
-        registration:
-          appid:
-            region: <<region>>
-            clientId: <<clientId>>
-            clientSecret: <<clientSecret>>
-            tenantID: <<tenantID>>
-            version: <<version>>
+   oauth2:
+     client:
+       registration:
+         appid:
+           provider: appid
+           clientId: <<clientId>>
+           clientSecret: <<clientSecret>>
+       provider:
+         appid:
+           issuerUri: <<issuerUri>>         
 ```
-* region - the region in which the App ID service is created in IBM Cloud.
-* clientID - is the client id of the App ID service you created.
-* clientSecret - is the client secret of the App ID service you created.
-* tenantID - is the tenant id of the App ID service you created.
-* version - is the App ID endpoints version, it is defaulted to 4, but if you would like to use a different version of App ID then this parameter should be set. This is optional.
+This is standard way to configure App ID.
+
 
 2.
 
@@ -69,26 +67,28 @@ spring:
 ```
 * issuerUri - URI that can either be an OpenID Connect discovery endpoint or an OAuth 2.0 Authorization Server Metadata endpoint defined by RFC 8414.
 
-
-If you are not sure of the region, tenantID and version, use this configuration by just providing oAuthServerUri.
-
 3.
 
 ```
 spring:
   security:
-   oauth2:
-     client:
-       registration:
-         appid:
-           provider: appid
-           clientId: <<clientId>>
-           clientSecret: <<clientSecret>>
-       provider:
-         appid:
-           issuerUri: <<issuerUri>>         
+    oauth2:
+      client:
+        registration:
+          appid:
+            clientId: <<clientId>>
+            clientSecret: <<clientSecret>>
+            region: <<region>>
+            tenantID: <<tenantID>>
+            version: <<version>>
 ```
-This is the other way to configure App ID.
+* region - the region in which the App ID service is created in IBM Cloud. Ex: dallas, london etc.,
+* clientID - is the client id of the App ID service you created.
+* clientSecret - is the client secret of the App ID service you created.
+* tenantID - is the tenant id of the App ID service you created.
+* version - is the App ID endpoints version, it is defaulted to 4, but if you would like to use a different version of App ID then this parameter should be set. This is optional.
+
+If you are not sure of the region, tenantID and version, use the above 2nd configuration by just providing issuerUri.
 
 
 The starter also supports multiple oauth provider configuration, i.e., you can configure the application with more than one OAuth provider. For example, you can do something like this:

@@ -8,11 +8,11 @@
 		<version>2.1.9.RELEASE</version>
 		<relativePath/>
 	</parent>
-	<groupId>com.appid</groupId>
+	<groupId>com.ibm.cloud.appid</groupId>
 	<artifactId>appid-spring-boot-starter</artifactId>
 	<version>0.0.1</version>
 	<name>appIDSpringBootStarter</name>
-	<description>Spring Boot starter for AppId</description>
+	<description>Spring Boot starter for App ID</description>
 
 	<properties>
 		<java.version>1.8</java.version>
