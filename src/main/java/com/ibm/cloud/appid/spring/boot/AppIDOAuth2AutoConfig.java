@@ -1,4 +1,4 @@
-package com.ibm.appid.spring.boot;
+package com.ibm.cloud.appid.spring.boot;
 
 import java.util.ArrayList;
 import java.util.List;

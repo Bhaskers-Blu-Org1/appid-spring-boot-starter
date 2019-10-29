@@ -1,4 +1,4 @@
-package com.ibm.appid.spring.boot;
+package com.ibm.cloud.appid.spring.boot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +12,7 @@ import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 import org.springframework.util.StringUtils;
 
-import com.ibm.appid.spring.boot.AppIDOAuth2ConfigurationProperties.Provider;
+import com.ibm.cloud.appid.spring.boot.AppIDOAuth2ConfigurationProperties.Provider;
 
 import org.springframework.boot.context.properties.PropertyMapper;
 import org.springframework.boot.convert.ApplicationConversionService;

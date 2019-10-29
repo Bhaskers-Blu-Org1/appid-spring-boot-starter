@@ -1,4 +1,4 @@
-package com.ibm.appid.spring.boot;
+package com.ibm.cloud.appid.spring.boot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,7 +6,6 @@ import java.util.Set;
 
 import javax.annotation.PostConstruct;
 
-import org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2ClientProperties.Provider;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.util.StringUtils;
 

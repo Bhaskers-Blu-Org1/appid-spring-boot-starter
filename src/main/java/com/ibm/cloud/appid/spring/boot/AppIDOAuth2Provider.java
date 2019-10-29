@@ -1,4 +1,4 @@
-package com.ibm.appid.spring.boot;
+package com.ibm.cloud.appid.spring.boot;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -60,6 +60,7 @@ public enum AppIDOAuth2Provider {
 	private static final String APPID_OAUTH_URL_FRANKFURT = "https://eu-de.appid.cloud.ibm.com/oauth/";
 	private static final String APPID_OAUTH_URL_LONDON = "https://eu-gb.appid.cloud.ibm.com/oauth/";
 	private static final String APPID_OAUTH_URL_TOKYO = "https://jp-tok.appid.cloud.ibm.com/oauth/";
+	private static final String DEFAULT_APPID_VERSION = "4";
 	
 	
 	public Builder getBuilder(String registrationId, String appIDURL, AppIDOAuth2ConfigurationProperties.Registration properties) {
@@ -89,7 +90,7 @@ public enum AppIDOAuth2Provider {
 			return oAuthServerUri;
 		}
 		return new StringBuilder(appIDURL)
-				.append("v" + version + "/")
+				.append("v" + version != null ? version : DEFAULT_APPID_VERSION + "/")
 				.append(tenantID).toString();
 	}
 
