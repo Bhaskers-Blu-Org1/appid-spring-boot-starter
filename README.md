@@ -7,10 +7,6 @@ This is a spring boot starter that enables Spring boot developers to get started
 * [Related Documentation](#related-documentation)
 * [Development](#development)
     * [Contributing](CONTRIBUTING.md)
-    * [Test Suite](CONTRIBUTING.md#running-the-tests)
-    * [Using in Other Projects](#using-in-other-projects)
-    * [License](#license)
-    * [Issues](#issues)
 
 ## Installation and Usage
     
@@ -50,14 +46,12 @@ spring:
             clientId: <<clientId>>
             clientSecret: <<clientSecret>>
             tenantID: <<tenantID>>
-            redirectUri: <<redirectUri>>
             version: <<version>>
 ```
 * region - the region in which the App ID service is created in IBM Cloud.
 * clientID - is the client id of the App ID service you created.
 * clientSecret - is the client secret of the App ID service you created.
 * tenantID - is the tenant id of the App ID service you created.
-* redirectUri - is the endpoint in your application to which App ID redirects in your application. For example: `${baseurl}/login/oauth2/code/appid`.
 * version - is the App ID endpoints version, it is defaulted to 4, but if you would like to use a different version then this parameter should be set.
 
 2.
@@ -71,7 +65,6 @@ spring:
           appid:
             clientId: <<clientId>>
             clientSecret: <<clientSecret>>
-            redirectUri: <<redirectUri>>
             oAuthServerUri: <<oAuthServerUri>> 
 ```
 * oAuthServerUri - is the oAuthServerUri of the App ID.
@@ -90,7 +83,6 @@ spring:
            provider: appid
            clientId: <<clientId>>
            clientSecret: <<clientSecret>>
-           redirectUri: <<redirectUri>>
        provider:
          appid:
            issuerUri: <<issuerUri>>         
@@ -111,8 +103,6 @@ spring:
             clientId: <<clientId>>
             clientSecret: <<clientSecret>>
             tenantID: <<tenantID>>
-            redirectUri: <<redirectUri>>
-            version: <<version>>
           google:
             clientId: <<clientId>>
             clientSecret: <<clientSecret>>
