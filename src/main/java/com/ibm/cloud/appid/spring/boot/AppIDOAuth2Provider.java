@@ -61,6 +61,8 @@ public enum AppIDOAuth2Provider {
 	private static final String APPID_OAUTH_URL_LONDON = "https://eu-gb.appid.cloud.ibm.com/oauth/";
 	private static final String APPID_OAUTH_URL_TOKYO = "https://jp-tok.appid.cloud.ibm.com/oauth/";
 	private static final String DEFAULT_APPID_VERSION = "4";
+	private static final String DEFAULT_REDIRECT_URL = "{baseUrl}/{action}/oauth2/code/{registrationId}";
+
 	
 	
 	public Builder getBuilder(String registrationId, String appIDURL, AppIDOAuth2ConfigurationProperties.Registration properties) {
@@ -74,7 +76,7 @@ public enum AppIDOAuth2Provider {
 		builder.clientSecret(properties.getClientSecret());
 		builder.clientAuthenticationMethod(ClientAuthenticationMethod.BASIC);
 		builder.authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE);
-		builder.redirectUriTemplate(properties.getRedirectUri());
+		builder.redirectUriTemplate(properties.getRedirectUri() != null ? properties.getRedirectUri() : DEFAULT_REDIRECT_URL);
 		builder.scope(properties.getScope() != null ? properties.getScope() : scope);
 		builder.authorizationUri(oAuthServerUri + "/authorization");
 		builder.tokenUri(oAuthServerUri + "/token");
@@ -90,7 +92,7 @@ public enum AppIDOAuth2Provider {
 			return oAuthServerUri;
 		}
 		return new StringBuilder(appIDURL)
-				.append("v" + version != null ? version : DEFAULT_APPID_VERSION + "/")
+				.append("v" + (version != null ? version : DEFAULT_APPID_VERSION) + "/")
 				.append(tenantID).toString();
 	}
 
