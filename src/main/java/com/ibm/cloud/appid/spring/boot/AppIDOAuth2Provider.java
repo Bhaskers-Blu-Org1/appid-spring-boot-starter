@@ -69,12 +69,16 @@ public enum AppIDOAuth2Provider {
 		scope.add("openid");
 		String oAuthServerUri = getOAuthServerUri(appIDURL, properties.getVersion(),
 				properties.getTenantID());
+		AuthorizationGrantType authorizationGrantType = AuthorizationGrantType.AUTHORIZATION_CODE;
+		if (properties.getAuthorizationGrantType() != null) {
+			authorizationGrantType = new AuthorizationGrantType(properties.getAuthorizationGrantType());
+		}
 		
 		ClientRegistration.Builder builder = ClientRegistration.withRegistrationId(registrationId);
 		builder.clientId(properties.getClientId());
 		builder.clientSecret(properties.getClientSecret());
 		builder.clientAuthenticationMethod(ClientAuthenticationMethod.BASIC);
-		builder.authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE);
+		builder.authorizationGrantType(authorizationGrantType);
 		builder.redirectUriTemplate(properties.getRedirectUri() != null ? properties.getRedirectUri() : DEFAULT_REDIRECT_URL);
 		builder.scope(properties.getScope() != null ? properties.getScope() : scope);
 		builder.authorizationUri(oAuthServerUri + "/authorization");
