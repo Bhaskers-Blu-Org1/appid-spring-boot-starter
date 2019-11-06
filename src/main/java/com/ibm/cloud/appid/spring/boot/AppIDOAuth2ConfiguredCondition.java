@@ -20,24 +20,23 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
  */
 
 public class AppIDOAuth2ConfiguredCondition extends SpringBootCondition {
-
-	private static final String APPID = "appid";
-	private static final Bindable<Map<String, AppIDOAuth2ConfigurationProperties.Registration>> STRING_REGISTRATION_MAP = Bindable
-			.mapOf(String.class, AppIDOAuth2ConfigurationProperties.Registration.class);
-
-	@Override
-	public ConditionOutcome getMatchOutcome(ConditionContext context, AnnotatedTypeMetadata metadata) {
-		ConditionMessage.Builder message = ConditionMessage.forCondition("OAuth2 Clients Configured Condition");
-		Map<String, AppIDOAuth2ConfigurationProperties.Registration> registrations = getRegistrations(context.getEnvironment());
-		if (!registrations.isEmpty() && registrations.containsKey(APPID)) {
-			return ConditionOutcome.match(message.foundExactly("registered clients " + registrations.values().stream()
-					.map(AppIDOAuth2ConfigurationProperties.Registration::getClientId).collect(Collectors.joining(", "))));
-		}
-		return ConditionOutcome.noMatch(message.notAvailable("registered clients"));
-	}
-	
-	private Map<String, AppIDOAuth2ConfigurationProperties.Registration> getRegistrations(Environment environment) {
-		return Binder.get(environment).bind("spring.security.oauth2.client.registration", STRING_REGISTRATION_MAP)
-				.orElse(Collections.emptyMap());
-	}
+    private static final String APPID = "appid";
+    private static final Bindable<Map<String, AppIDOAuth2ConfigurationProperties.Registration>> STRING_REGISTRATION_MAP = Bindable
+            .mapOf(String.class, AppIDOAuth2ConfigurationProperties.Registration.class);
+    
+    @Override
+    public ConditionOutcome getMatchOutcome(ConditionContext context, AnnotatedTypeMetadata metadata) {
+        ConditionMessage.Builder message = ConditionMessage.forCondition("OAuth2 Clients Configured Condition");
+        Map<String, AppIDOAuth2ConfigurationProperties.Registration> registrations = getRegistrations(context.getEnvironment());
+        if (!registrations.isEmpty() && registrations.containsKey(APPID)) {
+            return ConditionOutcome.match(message.foundExactly("registered clients " + registrations.values().stream()
+                    .map(AppIDOAuth2ConfigurationProperties.Registration::getClientId).collect(Collectors.joining(", "))));
+        }
+        return ConditionOutcome.noMatch(message.notAvailable("registered clients"));
+    }
+    
+    private Map<String, AppIDOAuth2ConfigurationProperties.Registration> getRegistrations(Environment environment) {
+        return Binder.get(environment).bind("spring.security.oauth2.client.registration", STRING_REGISTRATION_MAP)
+                .orElse(Collections.emptyMap());
+    }
 }
