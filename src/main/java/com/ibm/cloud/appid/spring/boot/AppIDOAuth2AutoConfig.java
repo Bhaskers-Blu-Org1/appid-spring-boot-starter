@@ -16,13 +16,13 @@ import org.springframework.security.oauth2.client.registration.InMemoryClientReg
 @EnableConfigurationProperties(AppIDOAuth2ConfigurationProperties.class)
 @Conditional(AppIDOAuth2ConfiguredCondition.class)
 public class AppIDOAuth2AutoConfig {
-
+    
     @Autowired
     private AppIDOAuth2ConfigurationProperties properties;
 
     @Bean
     public ClientRegistrationRepository clientRegistrationRepository() {
-		List<ClientRegistration> registrations = new ArrayList<>(AppIDOAuth2ClientPropertiesRegistrationAdapter.getClientRegistrations(properties).values());
+        List<ClientRegistration> registrations = new ArrayList<>(AppIDOAuth2ClientPropertiesRegistrationAdapter.getClientRegistrations(properties).values());
         return new InMemoryClientRegistrationRepository(registrations);
     }
 }
