@@ -10,7 +10,7 @@
     
     <groupId>com.ibm.cloud.appid</groupId>
     <artifactId>appid-spring-boot-starter</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
     <description>Spring Boot starter for App ID</description>
     
     <licenses>
