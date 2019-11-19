@@ -56,9 +56,9 @@
     </distributionManagement>
     
     <scm>
-        <url>git@github.com:IBM-Cloud/bluemix-cloud-connectors.git</url>
-        <connection>scm:git:git@github.com:IBM-Cloud/bluemix-cloud-connectors.git</connection>
-        <developerConnection>scm:git:git@github.com:IBM-Cloud/bluemix-cloud-connectors.git</developerConnection>
+        <url>git@github.com:IBM/appid-spring-boot-starter.git</url>
+        <connection>scm:git:git@github.com:IBM/appid-spring-boot-starter.git</connection>
+        <developerConnection>scm:git:git@github.com:IBM/appid-spring-boot-starter.git</developerConnection>
         <tag>appid-spring-boot-starter-0.0.1</tag>
     </scm>
 
