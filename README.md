@@ -1,12 +1,10 @@
 # App ID Spring Boot Starter 
 
-This is a spring boot starter that enables Spring boot developers to get started quickly to build authentication workflow for applications that use [App ID](https://www.ibm.com/cloud/app-id) and OAuth 2.0 to secure its back end. This starter is like an extension to the actual functionality of the spring security, that means you can do whatever you want to do with spring secuirty, plus you get additional functionality to configure App ID.
+This is a spring boot starter that enables Spring boot developers to get started quickly to build authentication workflow for applications that use [App ID](https://www.ibm.com/cloud/app-id) and OAuth 2.0 to secure its back end. This starter is like an extension to the actual functionality of the spring security, that means you can do whatever you want to do with spring security, plus you get additional functionality to configure App ID.
 
 * [Installation and Usage](#installation-and-usage)
 * [Getting Started](#getting-started)
 * [Related Documentation](#related-documentation)
-* [Development](#development)
-    * [Contributing](CONTRIBUTING.md)
 
 ## Installation and Usage
     
@@ -114,6 +112,3 @@ spring:
 * [Spring Boot documentation](https://projects.spring.io/spring-boot/)
 * [App ID blogs](https://cloud.ibm.com/docs/services/appid?topic=appid-rellinks)
 * [Spring Security](https://docs.spring.io/spring-security/site/docs/5.1.6.RELEASE/reference/htmlsingle/)
-
-## Development
-For information about contributing, building, and running tests see the [CONTRIBUTING.md](CONTRIBUTING.md).
