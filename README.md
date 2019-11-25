@@ -14,7 +14,7 @@ Gradle:
 
 ```groovy
 dependencies {
-    compile group: 'com.ibm.cloud', name: 'appid-spring-boot-starter', version: '0.0.1'
+    compile group: 'com.ibm.cloud', name: 'appid-spring-boot-starter', version: '0.0.5'
 }
 ```
 
@@ -24,7 +24,7 @@ Maven:
 <dependency>
   <groupId>com.ibm.cloud</groupId>
   <artifactId>appid-spring-boot-starter</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.5</version>
 </dependency>
 ~~~
 
